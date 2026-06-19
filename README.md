@@ -1,6 +1,34 @@
 # C4 Reader and Converter to PDF
 
-Local Windows friendly Python dashboard for opening C4/JEDMICS raster drawings and converting them to PDF.
+Convert legacy C4/JEDMICS engineering raster drawings to PDF.
+
+This project now has two ways to use it:
+
+1. **Online one file converter** through GitHub Pages.
+2. **Local Windows Python dashboard** for previewing, saving, and batch converting folders.
+
+## Online converter
+
+The online converter is up and running here:
+
+[https://deerspotter.github.io/C4-Reader-and-Converter-to-pdf/](https://deerspotter.github.io/C4-Reader-and-Converter-to-pdf/)
+
+Use this when you only need to convert one `.C4` file at a time.
+
+The browser version runs locally in your browser. The selected file is not uploaded to a server. It reads the C4/JEDMICS tile data, builds a PDF in the browser, and lets you open or download the generated PDF.
+
+Online converter features:
+
+- Select or drag and drop one `.C4` file.
+- Preview the generated PDF in the browser.
+- Change DPI before exporting.
+- Open the generated PDF in a new tab.
+- Download the generated PDF.
+- No Python install required.
+
+## Local Python dashboard
+
+The local dashboard is the full desktop version. Use this when you want folder batch conversion, recursive subfolder scanning, or a Windows desktop preview workflow.
 
 ## Features
 
