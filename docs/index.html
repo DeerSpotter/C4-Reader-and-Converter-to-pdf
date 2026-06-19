@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C4 Reader and Converter to PDF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="panel controls">
+      <div class="eyebrow">GitHub Pages one-file converter</div>
+      <h1>C4 Reader and Converter to PDF</h1>
+      <p class="lede">
+        Select one legacy C4/JEDMICS drawing, preview the generated PDF, then download it.
+        The file is processed locally in your browser and is not uploaded.
+      </p>
+
+      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4 file">
+        <strong>Drop .C4 file here</strong>
+        <span>or use the file picker</span>
+      </div>
+
+      <input id="fileInput" class="hidden" type="file" accept=".c4,.C4">
+
+      <div class="row">
+        <button id="chooseButton" type="button">Choose C4 file</button>
+        <button id="downloadButton" type="button" disabled>Download PDF</button>
+        <button id="openButton" type="button" disabled>Open PDF</button>
+      </div>
+
+      <label class="dpi-label" for="dpiInput">
+        Drawing DPI
+        <input id="dpiInput" type="number" min="72" max="600" step="1" value="200">
+      </label>
+
+      <div id="status" class="status"></div>
+      <pre id="details" class="details"></pre>
+
+      <section class="notes">
+        <h2>What this page version does</h2>
+        <p>
+          This browser version is intentionally limited to one .C4 file at a time. The desktop Python
+          release remains the full tool for directory batch conversion and image format conversion.
+        </p>
+        <p>
+          The generated PDF embeds the original CCITT Group 4 tiles directly, so the page does not need
+          to upload files or run a server-side converter.
+        </p>
+      </section>
+    </section>
+
+    <section class="panel preview-panel">
+      <div class="preview-header">
+        <h2>PDF preview</h2>
+        <span>Uses your browser's built-in PDF viewer</span>
+      </div>
+      <iframe id="preview" title="Generated PDF preview"></iframe>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
