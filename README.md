@@ -86,13 +86,6 @@ run_c4_pdf_dashboard.bat
 4. The program searches all subfolders for supported files.
 5. It writes each output PDF in the same folder as the source file.
 
-Example:
-
-```text
-C:\Drawings\JobA\8213899-17-M191F672M1.C4
-C:\Drawings\JobA\8213899-17-M191F672M1.pdf
-```
-
 To replace existing PDFs, check **Overwrite PDFs in batch** before starting batch conversion.
 
 ## C4 decoding notes
