@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.pdf
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webp
