@@ -112,6 +112,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.batch-row {
+  margin-bottom: 0.35rem;
+}
+
 button,
 input {
   font: inherit;
@@ -133,6 +137,13 @@ button:disabled {
 
 button:not(:disabled):hover {
   filter: brightness(1.12);
+}
+
+.batch-help {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 .dpi-label {
