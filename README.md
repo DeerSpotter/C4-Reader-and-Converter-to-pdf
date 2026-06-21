@@ -32,11 +32,15 @@ The local dashboard is the full desktop version. Use this when you want folder b
 
 The launcher uses `c4_pdf_dashboard_mil.py`, which keeps the original `c4_pdf_dashboard.py` release code intact and adds `.MIL` support for JEDMICS CCITT4 files saved with a MIL extension.
 
-## How conversion works
+## Documentation
 
 For a technical explanation of the C4/MIL file structure, tile handling, PDF creation, and the difference between the Python and browser converters, see:
 
 [CONVERSION.md](CONVERSION.md)
+
+For AMCOM EDIS delivery package context, `INDEX.DLF` metadata notes, and why `.C4` and `.MIL` are both treated as JEDMICS CCITT4 raster drawings, see:
+
+[EDIS_DELIVERY.md](EDIS_DELIVERY.md)
 
 ## Features
 
