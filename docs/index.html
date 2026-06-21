@@ -3,28 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>C4 Reader and Converter to PDF</title>
+  <title>C4/MIL Reader and Converter to PDF</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="shell">
     <section class="panel controls">
       <div class="eyebrow">GitHub Pages one-file converter</div>
-      <h1>C4 Reader and Converter to PDF</h1>
+      <h1>C4/MIL Reader and Converter to PDF</h1>
       <p class="lede">
-        Select one legacy C4/JEDMICS drawing, preview the generated PDF, then download it.
-        The file is processed locally in your browser and is not uploaded.
+        Select one legacy C4/JEDMICS drawing or MIL file containing C4/CCITT4 data,
+        preview the generated PDF, then download it. The file is processed locally in
+        your browser and is not uploaded.
       </p>
 
-      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4 file">
-        <strong>Drop .C4 file here</strong>
+      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4 or MIL file">
+        <strong>Drop .C4 or .MIL file here</strong>
         <span>or use the file picker</span>
       </div>
 
-      <input id="fileInput" class="hidden" type="file" accept=".c4,.C4">
+      <input id="fileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL">
 
       <div class="row">
-        <button id="chooseButton" type="button">Choose C4 file</button>
+        <button id="chooseButton" type="button">Choose C4/MIL file</button>
         <button id="downloadButton" type="button" disabled>Download PDF</button>
         <button id="openButton" type="button" disabled>Open PDF</button>
       </div>
@@ -40,12 +41,13 @@
       <section class="notes">
         <h2>What this page version does</h2>
         <p>
-          This browser version is intentionally limited to one .C4 file at a time. The desktop Python
-          release remains the full tool for directory batch conversion and image format conversion.
+          This browser version is intentionally limited to one .C4 or .MIL file at a time.
+          The desktop Python release remains the full tool for directory batch conversion
+          and image format conversion.
         </p>
         <p>
-          The generated PDF embeds the original CCITT Group 4 tiles directly, so the page does not need
-          to upload files or run a server-side converter.
+          The generated PDF embeds the original CCITT Group 4 tiles directly, so the page
+          does not need to upload files or run a server-side converter.
         </p>
       </section>
     </section>
