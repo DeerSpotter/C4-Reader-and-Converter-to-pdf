@@ -16,6 +16,9 @@ The conversion logic is based on the public JEDMICS reference material included 
 - `C4-Img-Spec 2.pdf`, JEDMICS C4 Compressed Image File Format Technical Specification, Version 1.0, April 2002.
 - `3018_FileTypes.pdf`, JBR 3.0.18 Standard JEDMICS File Types, 11 September 2017.
 - `JBR_3.0.22_RST-DLF_Format_Spec 2.pdf`, JBR 3.0.22 Index File RST Format Definition, 9 December 2021.
+- `MIS_STD_52406C_IS 3.pdf`, AMCOM EDIS delivery and metadata requirements, 10 May 2017.
+
+For AMCOM EDIS delivery package context and `INDEX.DLF` metadata details, see [EDIS_DELIVERY.md](EDIS_DELIVERY.md).
 
 ## What a C4 file is
 
@@ -235,13 +238,17 @@ This is why the online converter can be fast and private. The file stays in the 
 | Best use | Desktop workflow and bulk conversion | Quick one file conversion with no install |
 | File privacy | Local desktop file access only | Local browser session only |
 
-## Relationship to RST and DLF files
+## Relationship to RST, DLF, and EDIS files
 
 RST and DLF files are metadata index formats used by JEDMICS. They can describe document numbers, CAGE codes, revisions, sheet numbers, frame numbers, file names, file extensions, file paths, distribution statements, and file type values.
 
 The RST/DLF specification says the `FileType` field must correspond to a value in the JEDMICS `FILE_TYPE_XREF` table. For C4, the important file type is `1`. The spec also says that when JEDMICS processes an IMAGE row with `FileType` value `1` and a file extension that is not `TIF`, the image is validated as a proper C4 image.
 
+MIS-STD-52406C-IS provides AMCOM EDIS delivery context. It identifies `INDEX.DLF` as the root level pipe-delimited ASCII metadata file for an EDIS delivery package and defines fields such as `FileType`, `FileExtension`, `FileName`, and `FilePath`.
+
 This converter does not currently parse RST or DLF metadata files. A future version could use RST or DLF to locate drawings and decide whether a referenced file should be passed through the C4/MIL conversion pipeline.
+
+For more detail, see [EDIS_DELIVERY.md](EDIS_DELIVERY.md).
 
 ## What this converter is not
 
