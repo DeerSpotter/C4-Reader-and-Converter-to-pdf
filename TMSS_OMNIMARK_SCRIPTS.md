@@ -12,13 +12,13 @@ The same A-10 PLM data exchange material also listed `.c4` as an accepted Teamce
 
 ## Packages observed
 
-Six script ZIP entries appeared in the solicitation package, but they reduce to three unique script packages.
+Six script ZIP entries appeared in the solicitation package, but they reduce to three unique script packages. The three ZIPs are now stored in this repository under [`scripts/`](scripts/).
 
-| Package | Duplicate entries | Contents | Purpose |
-| --- | ---: | --- | --- |
-| `38784STD-BV8a_scripts.zip` | 4 copies | 20 `.xom`, 15 `.sh`, 8 `.txt` | MIL-STD-38784 style technical manual automation |
-| `7700H-CV9D0P0_scripts.zip` | 1 copy | 4 `.xom`, 6 `.sh` | MIL-DTL-7700 flight manual / checklist processing |
-| `9977L-GV9D0P0_scripts.zip` | 1 copy | 2 `.xom`, 1 `.sh`, 1 `.txt` | MIL-DTL-9977 Appendix G style multiple carriage number processing |
+| Package | Repo link | Duplicate entries | Contents | Purpose |
+| --- | --- | ---: | --- | --- |
+| `38784STD-BV8a_scripts.zip` | [`scripts/38784STD-BV8a_scripts.zip`](scripts/38784STD-BV8a_scripts.zip) | 4 copies | 20 `.xom`, 15 `.sh`, 8 `.txt` | MIL-STD-38784 style technical manual automation |
+| `7700H-CV9D0P0_scripts.zip` | [`scripts/7700H-CV9D0P0_scripts.zip`](scripts/7700H-CV9D0P0_scripts.zip) | 1 copy | 4 `.xom`, 6 `.sh` | MIL-DTL-7700 flight manual / checklist processing |
+| `9977L-GV9D0P0_scripts.zip` | [`scripts/9977L-GV9D0P0_scripts.zip`](scripts/9977L-GV9D0P0_scripts.zip) | 1 copy | 2 `.xom`, 1 `.sh`, 1 `.txt` | MIL-DTL-9977 Appendix G style multiple carriage number processing |
 
 ## File types found
 
@@ -50,7 +50,7 @@ LM_LICENSE_FILE=$OMNIMARK_DIR/license.dat
 
 That means the scripts expected OmniMark, DLComposer, FOSI files, SGML libraries, and a JCALS/TMSS directory layout to already exist.
 
-## `38784STD-BV8a_scripts.zip`
+## [`38784STD-BV8a_scripts.zip`](scripts/38784STD-BV8a_scripts.zip)
 
 This is the largest script set. It supports MIL-STD-38784 style technical manuals, including illustrated parts breakdown and front/back matter automation.
 
@@ -139,7 +139,7 @@ vsmatter.dat
 vsmatter.out
 ```
 
-## `7700H-CV9D0P0_scripts.zip`
+## [`7700H-CV9D0P0_scripts.zip`](scripts/7700H-CV9D0P0_scripts.zip)
 
 This script package supports MIL-DTL-7700 style flight manual and checklist processing.
 
@@ -177,7 +177,7 @@ first.omni.inputs
 second.omni.inputs
 ```
 
-## `9977L-GV9D0P0_scripts.zip`
+## [`9977L-GV9D0P0_scripts.zip`](scripts/9977L-GV9D0P0_scripts.zip)
 
 This is a small script package for MIL-DTL-9977 Appendix G style processing.
 
