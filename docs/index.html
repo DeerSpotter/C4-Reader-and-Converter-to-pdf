@@ -14,8 +14,9 @@
       <p class="lede">
         Select one legacy C4/JEDMICS drawing or MIL file containing C4/CCITT4 data,
         preview the generated PDF, then download it. Or use batch mode to select a
-        folder or a set of files, convert all C4/MIL files locally, and download either
-        individual PDFs in a ZIP or one combined multi-page PDF.
+        folder, a set of files, or a ZIP/WinZip self extracting EXE package, convert
+        all C4/MIL files locally, and download either individual PDFs in a ZIP or one
+        combined multi-page PDF.
       </p>
 
       <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4 or MIL file">
@@ -26,6 +27,7 @@
       <input id="fileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL">
       <input id="folderInput" class="hidden" type="file" webkitdirectory directory multiple>
       <input id="multiFileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL" multiple>
+      <input id="packageInput" class="hidden" type="file" accept=".exe,.EXE,.zip,.ZIP" multiple>
 
       <div class="row">
         <button id="chooseButton" type="button">Choose C4/MIL file</button>
@@ -36,6 +38,7 @@
       <div class="row batch-row">
         <button id="folderButton" type="button">Choose folder</button>
         <button id="filesButton" type="button">Choose C4/MIL files</button>
+        <button id="packageButton" type="button">Choose EXE/ZIP package</button>
       </div>
 
       <div class="row batch-row">
@@ -53,6 +56,12 @@
         to web pages, so use <strong>Choose C4/MIL files</strong> on iPhone or iPad and
         select the files you want to convert from the Files app. Files are processed in
         your browser and are not uploaded.
+      </p>
+
+      <p class="batch-help">
+        <strong>Choose EXE/ZIP package</strong> reads ZIP files and old WinZip self extracting
+        EXE delivery packages as archives only. The EXE is not executed. The page extracts
+        embedded .C4/.MIL files in memory and converts them through the same PDF pipeline.
       </p>
 
       <p class="batch-help">
@@ -75,9 +84,10 @@
         <p>
           The browser version can convert one file for preview/download, batch convert a
           selected folder tree into one ZIP download, batch convert manually selected files,
-          save output directly into a selected folder on supported desktop browsers,
-          or combine batch output into one multi-page PDF. The desktop Python release remains
-          the full tool for writing each converted PDF beside each source file in local folders.
+          read C4/MIL drawings from ZIP or WinZip self extracting EXE packages, save output
+          directly into a selected folder on supported desktop browsers, or combine batch
+          output into one multi-page PDF. The desktop Python release remains the full tool
+          for writing each converted PDF beside each source file in local folders.
         </p>
         <p>
           The generated PDF embeds the original CCITT Group 4 tiles directly, so the page
@@ -100,5 +110,6 @@
   <script src="mil-support.js"></script>
   <script src="batch-folder.js"></script>
   <script src="save-to-source-folder.js"></script>
+  <script src="sfx-zip-support.js"></script>
 </body>
 </html>
