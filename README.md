@@ -54,6 +54,10 @@ For AMCOM EDIS delivery package context, `INDEX.DLF` metadata notes, and why `.C
 
 [EDIS_DELIVERY.md](EDIS_DELIVERY.md)
 
+For A-10 TMSS / JCALS OmniMark script package notes, legacy SGML publishing context, and `.c4` Teamcenter dataset evidence, see:
+
+[TMSS_OMNIMARK_SCRIPTS.md](TMSS_OMNIMARK_SCRIPTS.md)
+
 ## Features
 
 - Select a single C4/MIL drawing or normal image file.
