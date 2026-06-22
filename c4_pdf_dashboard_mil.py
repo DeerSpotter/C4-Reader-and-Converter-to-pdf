@@ -1,10 +1,10 @@
 """
-MIL-enabled launcher for the C4 Reader and Converter to PDF dashboard.
+MIL/CALS-enabled launcher for the C4 Reader and Converter to PDF dashboard.
 
 This wrapper keeps the original c4_pdf_dashboard.py release code intact and adds
-support for JEDMICS .MIL files that contain the same C4/CCITT4 tiled raster data.
-It also installs ZIP and WinZip self extracting EXE package support for batch
-conversion without executing package EXE files.
+support for JEDMICS .MIL files that contain the same C4/CCITT4 tiled raster data,
+CALS Type 1 .CAL/.CALS raster drawings, and ZIP/WinZip self extracting EXE
+package conversion without executing package EXE files.
 """
 
 from __future__ import annotations
@@ -15,11 +15,13 @@ import traceback
 
 import c4_pdf_dashboard as app
 import c4_sfx_package_support
+import cals_raster_support
 
 C4_MIL_EXTENSIONS = {".c4", ".mil"}
+DRAWING_EXTENSIONS = C4_MIL_EXTENSIONS | cals_raster_support.CALS_EXTENSIONS
 
-app.APP_TITLE = "C4/MIL Reader and Converter to PDF"
-app.SUPPORTED_EXTENSIONS.add(".mil")
+app.APP_TITLE = "C4/MIL/CALS Reader and Converter to PDF"
+app.SUPPORTED_EXTENSIONS.update(DRAWING_EXTENSIONS)
 
 _original_load_file = app.load_file
 _original_convert_file_to_pdf = app.convert_file_to_pdf
@@ -30,12 +32,18 @@ def _is_c4_or_mil(path: Path) -> bool:
     return path.suffix.lower() in C4_MIL_EXTENSIONS
 
 
+def _is_cals(path: Path) -> bool:
+    return cals_raster_support.is_cals(path)
+
+
 def load_file(path: Path, dpi_fallback: int = app.DEFAULT_DPI) -> app.LoadedFile:
     if _is_c4_or_mil(path):
         image, info, dpi = app.decode_c4(path, dpi_fallback)
         if path.suffix.lower() == ".mil":
             info = info.replace("C4/JEDMICS raster drawing", "JEDMICS MIL raster drawing")
         return app.LoadedFile(path, image, dpi, info)
+    if _is_cals(path):
+        return cals_raster_support.loaded_file(app, path, dpi_fallback)
     return _original_load_file(path, dpi_fallback)
 
 
@@ -44,7 +52,9 @@ def convert_file_to_pdf(path: Path, out_path: Path, dpi_fallback: int = app.DEFA
         loaded = load_file(path, dpi_fallback)
         if loaded.image is None:
             return False, "No image data available for conversion."
-        dpi = (dpi_fallback, dpi_fallback) if _is_c4_or_mil(path) else loaded.dpi
+        dpi = loaded.dpi
+        if _is_c4_or_mil(path):
+            dpi = (dpi_fallback, dpi_fallback)
         app.save_image_as_pdf(loaded.image, out_path, dpi)
         return True, str(out_path)
     except Exception as exc:
@@ -55,15 +65,19 @@ def dashboard_init(self: app.Dashboard) -> None:
     _original_dashboard_init(self)
     self.title(app.APP_TITLE)
     try:
-        self.status_var.set("Select a C4, MIL, or image file.")
+        self.status_var.set("Select a C4, MIL, CALS, image, ZIP, or self extracting EXE package.")
     except Exception:
         pass
 
 
 def select_file(self: app.Dashboard) -> None:
     filetypes = [
-        ("Supported files", "*.c4 *.C4 *.mil *.MIL *.tif *.tiff *.png *.jpg *.jpeg *.bmp *.gif *.webp *.pbm *.pgm *.ppm *.pdf"),
-        ("C4/MIL drawings", "*.c4 *.C4 *.mil *.MIL"),
+        (
+            "Supported files",
+            "*.c4 *.C4 *.mil *.MIL *.cal *.CAL *.cals *.CALS *.exe *.EXE *.zip *.ZIP *.tif *.tiff *.png *.jpg *.jpeg *.bmp *.gif *.webp *.pbm *.pgm *.ppm *.pdf",
+        ),
+        ("C4/MIL/CALS drawings", "*.c4 *.C4 *.mil *.MIL *.cal *.CAL *.cals *.CALS"),
+        ("ZIP/SFX packages", "*.exe *.EXE *.zip *.ZIP"),
         ("Images", "*.tif *.tiff *.png *.jpg *.jpeg *.bmp *.gif *.webp *.pbm *.pgm *.ppm"),
         ("PDF", "*.pdf"),
         ("All files", "*.*"),
@@ -133,7 +147,7 @@ app.Dashboard.select_file = select_file
 app.Dashboard.load_selected = load_selected
 app.Dashboard.save_pdf = save_pdf
 
-c4_sfx_package_support.install(app, C4_MIL_EXTENSIONS)
+c4_sfx_package_support.install(app, DRAWING_EXTENSIONS)
 
 
 if __name__ == "__main__":
