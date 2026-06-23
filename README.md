@@ -2,6 +2,8 @@
 
 Convert legacy C4/JEDMICS, MIL, CALS, and Group 4 TIFF engineering raster drawings to PDF.
 
+![C4/MIL/CALS to PDF browser converter screenshot](Screenshot%202026-06-23%20170601.png)
+
 This project now has two ways to use it:
 
 1. **Online converter** through GitHub Pages for one-file conversion, browser folder/file batch conversion, ZIP/SFX package conversion, ZIP download, direct folder save on supported desktop browsers, or combined multi-page PDF output.
