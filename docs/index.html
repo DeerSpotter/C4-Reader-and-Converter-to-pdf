@@ -12,21 +12,21 @@
       <div class="eyebrow">GitHub Pages converter</div>
       <h1>C4/MIL/CALS Reader and Converter to PDF</h1>
       <p class="lede">
-        Select one legacy C4/JEDMICS, MIL, or CALS Type 1 drawing,
+        Select one legacy C4/JEDMICS, MIL, CALS Type 1, or Group 4 TIFF drawing,
         preview the generated PDF, then download it. Or use batch mode to select a
         folder, a set of files, or a ZIP/WinZip self extracting EXE package, convert
         all supported drawing files locally, and download either individual PDFs in a ZIP
         or one combined multi-page PDF.
       </p>
 
-      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4, MIL, CAL, or CALS file">
-        <strong>Drop one .C4, .MIL, .CAL, or .CALS file here</strong>
+      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select or drop a C4, MIL, CAL, CALS, TIF, or TIFF file">
+        <strong>Drop one .C4, .MIL, .CAL, .CALS, .TIF, or .TIFF file here</strong>
         <span>or use the file picker</span>
       </div>
 
-      <input id="fileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL,.cal,.CAL,.cals,.CALS">
+      <input id="fileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL,.cal,.CAL,.cals,.CALS,.tif,.TIF,.tiff,.TIFF">
       <input id="folderInput" class="hidden" type="file" webkitdirectory directory multiple>
-      <input id="multiFileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL,.cal,.CAL,.cals,.CALS" multiple>
+      <input id="multiFileInput" class="hidden" type="file" accept=".c4,.C4,.mil,.MIL,.cal,.CAL,.cals,.CALS,.tif,.TIF,.tiff,.TIFF" multiple>
       <input id="packageInput" class="hidden" type="file" accept=".exe,.EXE,.zip,.ZIP" multiple>
 
       <div class="row">
@@ -51,7 +51,7 @@
       </label>
 
       <p class="batch-help">
-        Folder mode scans subfolders for .C4, .MIL, .CAL, and .CALS files when the browser supports
+        Folder mode scans subfolders for .C4, .MIL, .CAL, .CALS, .TIF, and .TIFF files when the browser supports
         recursive folder selection. iOS Safari may not expose recursive folder picking
         to web pages, so use <strong>Choose drawing files</strong> on iPhone or iPad and
         select the files you want to convert from the Files app. Files are processed in
@@ -61,7 +61,7 @@
       <p class="batch-help">
         <strong>Choose EXE/ZIP package</strong> reads ZIP files and old WinZip self extracting
         EXE delivery packages as archives only. The EXE is not executed. The page extracts
-        embedded .C4/.MIL/.CAL/.CALS files in memory and converts them through the same PDF pipeline.
+        embedded .C4/.MIL/.CAL/.CALS/.TIF/.TIFF files in memory and converts them through the same PDF pipeline.
       </p>
 
       <p class="batch-help">
@@ -109,6 +109,7 @@
   <script src="app.js"></script>
   <script src="mil-support.js"></script>
   <script src="cals-support.js"></script>
+  <script src="tiff-support.js"></script>
   <script src="batch-folder.js"></script>
   <script src="save-to-source-folder.js"></script>
   <script src="sfx-zip-support.js"></script>
